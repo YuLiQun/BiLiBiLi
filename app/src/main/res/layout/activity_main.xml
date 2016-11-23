@@ -6,7 +6,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               tools:context="qunzai.bilibili.main.MainActivity">
-    <include layout="@layout/item_include"/>
+    <include layout="@layout/item_include_main"/>
 
 
     <android.support.design.widget.TabLayout
