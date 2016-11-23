@@ -1,12 +1,12 @@
-package qunzai.bilibili.find;
+package qunzai.bilibili.classify;
 
 import qunzai.bilibili.base.BaseFragment;
 
 /**
- * Created by QunZai on 16/11/22.
+ * Created by QunZai on 16/11/23.
  */
 
-public class FindFragment extends BaseFragment {
+public class ClassifyFragment extends BaseFragment {
     @Override
     protected void initData() {
 
