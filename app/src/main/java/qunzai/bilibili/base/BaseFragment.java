@@ -45,22 +45,23 @@ public abstract class BaseFragment extends Fragment {
         initData();
     }
 
-    protected abstract void initData();
+    protected abstract int getLayout();
 
     protected abstract void initViews();
 
-    protected abstract int getLayout();
+    protected abstract void initData();
 
-    protected <T extends View>T bindView(int id){
+
+    protected <T extends View> T bindView(int id) {
         return (T) getView().findViewById(id);
     }
 
-    protected <T extends View>T bindView(View view,int id){
+    protected <T extends View> T bindView(View view, int id) {
         return (T) view.findViewById(id);
     }
 
 
-    protected void setClick(View.OnClickListener clickListener,View...views){
+    protected void setClick(View.OnClickListener clickListener, View... views) {
         for (View view : views) {
             view.setOnClickListener(clickListener);
         }

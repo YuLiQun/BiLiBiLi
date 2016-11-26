@@ -27,38 +27,38 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
     }
 
 
-
     /**
      * 通过View的id来指定View,,如果该View没有赋值,就先指向findViewById,,然后放到View的集合里
      * 使用泛型来强转
+     *
      * @param id
      * @returnv 指定的View
      */
-    public <T extends View> T getView(int id){
+    public <T extends View> T getView(int id) {
         View view = views.get(id);
-        if (view == null){
+        if (view == null) {
             view = itemView.findViewById(id);
-            views.put(id,view);
+            views.put(id, view);
         }
-        return (T)view;
+        return (T) view;
     }
 
     //返回行布局
-    public View getItemView(){
+    public View getItemView() {
         return itemView;
     }
 
 
     //如果不写静态的方法,,就得先new出来,,通过类名调用
     //专门给ListView使用的方法
-    public static CommonViewHolder getViewHolder(View itemView, ViewGroup parent , int itemId){
+    public static CommonViewHolder getViewHolder(View itemView, ViewGroup parent, int itemId) {
         CommonViewHolder viewHolder = null;
         Context context = parent.getContext();
-        if (itemView == null){
-            itemView = LayoutInflater.from(context).inflate(itemId,parent,false);
+        if (itemView == null) {
+            itemView = LayoutInflater.from(context).inflate(itemId, parent, false);
             viewHolder = new CommonViewHolder(itemView);
             itemView.setTag(viewHolder);
-        }else {
+        } else {
             viewHolder = (CommonViewHolder) itemView.getTag();
         }
 
@@ -68,15 +68,17 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
 
     //重载
     //专门给reycler使用的方法
-    public static CommonViewHolder getViewHolder( ViewGroup parent , int itemId){
-        return getViewHolder(null,parent,itemId);
+    public static CommonViewHolder getViewHolder(ViewGroup parent, int itemId) {
+        return getViewHolder(null, parent, itemId);
     }
 
-    /***********************ViewHolder 设置数据的方法*****************************/
+    /***********************
+     * ViewHolder 设置数据的方法
+     *****************************/
 
     //设置文字
     // 所有的set方法,,,返回值都可以这么写,,可以继续点
-    public CommonViewHolder setText(int id, String text){
+    public CommonViewHolder setText(int id, String text) {
         TextView textView = getView(id);
         textView.setText(text);
         //返回的是当前使用的对象
@@ -98,14 +100,13 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
 //    }
 
 
-
-    public CommonViewHolder setImage(int id, int imgId){
+    public CommonViewHolder setImage(int id, int imgId) {
         ImageView imageView = getView(id);
         imageView.setImageResource(imgId);
         return this;
     }
 
-    public CommonViewHolder setImage (int id ,String url){
+    public CommonViewHolder setImage(int id, String url) {
         ImageView imageView = getView(id);
         //TODO 这里有网络请求
 //        VolleySingleSimple.getInstance().getImage(url,imageView);
@@ -114,16 +115,14 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
 
 
     //设置点击事件的监听
-    public CommonViewHolder setViewClick(int id , View.OnClickListener listener){
+    public CommonViewHolder setViewClick(int id, View.OnClickListener listener) {
         getView(id).setOnClickListener(listener);
         return this;
     }
 
 
-
-
     //行布局设置点击事件
-    public CommonViewHolder setItemClick(View.OnClickListener listener){
+    public CommonViewHolder setItemClick(View.OnClickListener listener) {
         itemView.setOnClickListener(listener);
         return this;
     }
@@ -135,16 +134,25 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
         textView.setTextColor(color);
     }
 
-    public void setBackgroundColor(int id , int color) {
+    public void setBackgroundColor(int id, int color) {
         View view = getView(id);
         view.setBackgroundColor(color);
     }
 
 
     //画园
-    public void setCircleImg(int id,String url){
+    public void setCircleImg(int id, String url) {
         ImageView imageView = getView(id);
         //TODO 这里也有网络请求
 //        VolleySingleSimple.getInstance().getCircleImg(url,imageView);
     }
+
+
+    //下划线
+    public TextView setTextAttribute(int id) {
+        TextView textView = getView(id);
+        //返回的是当前使用的对象
+        return textView;
+    }
+
 }

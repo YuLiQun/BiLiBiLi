@@ -1,33 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               tools:context="qunzai.bilibili.main.MainActivity">
-    <include layout="@layout/item_include_main"/>
 
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/activity_main_tb"
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabTextColor="#f9b2c5"
-        app:tabSelectedTextColor="#ffffff"
-        android:background="#fc6f97"
-        app:tabIndicatorColor="#ffffff"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         >
 
-    </android.support.design.widget.TabLayout>
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#fc6f97"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:id="@+id/activity_main_toolbar"
+            >
+
+           <include layout="@layout/item_include_main"/>
+
+        </android.support.v7.widget.Toolbar>
+
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/activity_main_tb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="#f9b2c5"
+            app:tabSelectedTextColor="#ffffff"
+            android:background="#fc6f97"
+            app:tabIndicatorColor="#ffffff">
+
+
+        </android.support.design.widget.TabLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
 
     <android.support.v4.view.ViewPager
         android:id="@+id/activity_main_vp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
 
     </android.support.v4.view.ViewPager>
 
 
-</LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="#ffffff"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragment_drawer_fl"
+            >
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+
+
+</android.support.v4.widget.DrawerLayout>
