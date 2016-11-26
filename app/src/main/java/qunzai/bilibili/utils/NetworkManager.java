@@ -1,7 +1,8 @@
 package qunzai.bilibili.utils;
 
 /**
- * Created by dllo on 16/11/22.
+ * Created by XingMingDa on 16/11/22.
+ * NetworkManager
  */
 
 public class NetworkManager {
