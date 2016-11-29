@@ -41,7 +41,8 @@ package qunzai.bilibili.internet;
         */
 
 /**
- * Created by dllo on 16/10/22.
+ * Created by XingMingDa on 16/10/22.
+ * BiliBili的Url
  */
 
 public final class UrlClass {
@@ -144,6 +145,10 @@ public final class UrlClass {
     //直播标签
     public static final String URL_LIVE_TAAG = "http://live.bilibili.com/AppIndex/areas?_device=android&_hwid=844cebfd4683c8d8&_ulv=5000&access_key=7ae7d856f4eee8afa300f6f17ddcb2fc&appkey=1d8b6e7d45233436&build=427000&mobi_app=android&platform=android&scale=hdpi&sign=69e138520fa533d03bd4a6de9839d8af";
 
+    /**
+     * 直播全部分类
+     */
+    public static final String URL_ALL_CATEGORIES = "http://live.bilibili.com/AppIndex/areas?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&build=429001&mobi_app=android&platform=android&scale=xhdpi&sign=b69f54200dab045d424f197778b12137";
 
     /**
      * 发现

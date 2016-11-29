@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import qunzai.bilibili.internet.LoadingImageView;
+
 
 /**
  * Created by qunzai on 16/11/1.
@@ -112,6 +114,17 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+    public CommonViewHolder setLoadingImage(int id, int imgId){
+        LoadingImageView imageView = getView(id);
+        imageView.loadLocalImage(imgId);
+        return this;
+    }
+
+    public CommonViewHolder setLoadingImage(int id, String url){
+        LoadingImageView imageView = getView(id);
+        imageView.loadImageDefault(url);
+        return this;
+    }
 
     //设置点击事件的监听
     public CommonViewHolder setViewClick(int id , View.OnClickListener listener){

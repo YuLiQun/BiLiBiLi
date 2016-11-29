@@ -1,4 +1,4 @@
-package qunzai.bilibili.utils;
+package qunzai.bilibili.internet;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+
+import qunzai.bilibili.utils.CircleImageView;
 
 /**
  * Created by XingMingDa on 16/11/26.

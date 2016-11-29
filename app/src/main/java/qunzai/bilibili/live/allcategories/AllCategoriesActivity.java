@@ -1,5 +1,7 @@
 package qunzai.bilibili.live.allcategories;
 
+import android.support.v7.widget.RecyclerView;
+
 import qunzai.bilibili.R;
 import qunzai.bilibili.base.BaseActivity;
 import qunzai.bilibili.utils.CircleImageView;
@@ -10,7 +12,7 @@ import qunzai.bilibili.utils.CircleImageView;
 
 public class AllCategoriesActivity extends BaseActivity {
 
-    private CircleImageView mCircleImageView;
+    private RecyclerView mRecyclerView;
 
     @Override
     protected int getLayout() {
@@ -19,12 +21,12 @@ public class AllCategoriesActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-        mCircleImageView = bindView(R.id.profile_image);
+        mRecyclerView = (RecyclerView) findViewById(R.id.activity_all_categories_recycler_view);
     }
 
     @Override
     protected void initData() {
-        mCircleImageView.loadImageDefault("http://img2.imgtn.bdimg.com/it/u=1844801748,1310549684&fm=23&gp=0.jpg");
-        mCircleImageView.setBorderColor(0xFFFF0000);
+        AllCategoriesAdapter adapter = new AllCategoriesAdapter();
+
     }
 }

@@ -44,9 +44,6 @@ dependencies {
     compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.7.4'
     //    #  弹幕
     compile 'com.github.ctiao:DanmakuFlameMaster:0.6.1'
-
     compile 'com.github.bumptech.glide:glide:3.7.0'
-
     compile 'de.hdodenhof:circleimageview:2.1.0'
-
 }
