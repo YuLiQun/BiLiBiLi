@@ -14,18 +14,26 @@ public class RecommendFragment extends BaseFragment {
 
     private RecyclerView mRv;
 
-    @Override
-    protected void initData() {
 
+
+
+
+    @Override
+    protected int getLayout() {
+        return R.layout.fragment_recommend;
     }
 
     @Override
     protected void initViews() {
         mRv = bindView(R.id.fragment_recommend_rv);
+
+
     }
 
     @Override
-    protected int getLayout() {
-        return R.layout.fragment_recommend;
+    protected void initData() {
+        RecommendAdapter adapter = new RecommendAdapter();
+        mRv.setAdapter(adapter);
+
     }
 }

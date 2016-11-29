@@ -155,4 +155,8 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
         return textView;
     }
 
+    public static CommonViewHolder getHeadViewHolder(View view) {
+
+        return new CommonViewHolder(view);
+    }
 }

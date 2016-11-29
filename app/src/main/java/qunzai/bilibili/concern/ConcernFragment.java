@@ -1,5 +1,11 @@
 package qunzai.bilibili.concern;
 
+import android.support.v4.widget.NestedScrollView;
+import android.util.Log;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+
+import qunzai.bilibili.R;
 import qunzai.bilibili.base.BaseFragment;
 
 /**
@@ -8,9 +14,9 @@ import qunzai.bilibili.base.BaseFragment;
  */
 
 public class ConcernFragment extends BaseFragment {
+
     @Override
     protected void initData() {
-
     }
 
     @Override
@@ -18,8 +24,11 @@ public class ConcernFragment extends BaseFragment {
 
     }
 
+
     @Override
     protected int getLayout() {
-        return 0;
+        return R.layout.fragment_concern;
     }
+
+
 }
