@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_turing"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="qunzai.bilibili.communication.TuringActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/activity_turing_comm_rv"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <Button
+        android:layout_width="35dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@mipmap/log"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="2dp"
+        android:id="@+id/activity_turing_voice_btn"
+        android:layout_height="35dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="wrap_content"
+            android:hint="请输入你想对我说的话"
+            android:id="@+id/activity_turing_dialogue_et"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/activity_turing_send_btn"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="发送"
+            android:layout_height="wrap_content"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_alignParentBottom="true"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="35dp"
+        android:layout_marginBottom="5dp"
+        android:visibility="gone"
+        android:id="@+id/activity_turing_keyboard_tv"
+        android:layout_marginLeft="5dp"
+        android:background="@mipmap/keyboard"
+        android:layout_height="35dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:text="长按进行语音发送"
+        android:visibility="gone"
+        android:id="@+id/activity_turing_long_send_btn"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
+
+
+</RelativeLayout>
