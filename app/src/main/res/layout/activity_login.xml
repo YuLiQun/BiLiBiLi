@@ -63,8 +63,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="你的手机号码/邮箱"
+        android:id="@+id/activity_login_phone_et"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
+        android:maxLength="11"
+        android:numeric="integer"
+        android:phoneNumber="true"
         />
 
 
@@ -72,10 +76,11 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="验证码"
+        android:hint="密码"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        />
+        android:inputType="textPassword"
+        android:id="@+id/activity_login_psw_et"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -93,6 +98,7 @@
             android:text="注册账号"
             android:gravity="center"
             android:layout_marginRight="5dp"
+            android:id="@+id/activity_login_logon_tv"
             />
 
 

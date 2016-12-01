@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import qunzai.bilibili.R;
 import qunzai.bilibili.base.BaseFragment;
+import qunzai.bilibili.drawer.login.LoginActivity;
 
 /**
  * Created by QunZai on 16/11/24.

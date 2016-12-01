@@ -25,9 +25,25 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
-    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:support-v4:24.2.1'
     compile 'com.android.support:recyclerview-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
     compile 'com.squareup.okhttp3:okhttp:3.4.2'
+    //    # required, enough for most devices.
+    compile 'tv.danmaku.ijk.media:ijkplayer-java:0.7.4'
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.7.4'
+    //    # Other ABIs: optional
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.7.4'
+    //    compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.7.4'
+    compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.7.4'
+    //    compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.7.4'
+    //    # ExoPlayer as IMediaPlayer: optional, experimental
+    compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.7.4'
+    //    #  弹幕
+    compile 'com.github.ctiao:DanmakuFlameMaster:0.6.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.google.code.gson:gson:2.8.0'
 }

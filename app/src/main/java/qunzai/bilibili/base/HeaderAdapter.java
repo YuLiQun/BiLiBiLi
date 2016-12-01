@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by zhaojun on 16/11/25.
+ * Created by qunZai on 16/11/28.
  */
 
 public class HeaderAdapter extends RecyclerView.Adapter {

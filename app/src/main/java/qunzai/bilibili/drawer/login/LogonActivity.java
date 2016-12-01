@@ -1,15 +1,15 @@
-package qunzai.bilibili.drawer;
+package qunzai.bilibili.drawer.login;
 
 import qunzai.bilibili.R;
 import qunzai.bilibili.base.BaseActivity;
 
 /**
- * Created by QunZai on 16/11/25.
+ * Created by QunZai on 16/12/1.
  */
-public class LoginActivity extends BaseActivity{
+public class LogonActivity extends BaseActivity{
     @Override
     protected int getLayout() {
-        return R.layout.activity_login;
+        return R.layout.activity_logon;
     }
 
     @Override
