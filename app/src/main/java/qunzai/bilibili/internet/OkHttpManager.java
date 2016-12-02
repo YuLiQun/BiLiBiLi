@@ -27,14 +27,14 @@ public class OkHttpManager extends NetworkManager {
     }
 
     @Override
-    protected <T> void get(String url, Class<T> clazz, ResponseCallBack<T> responseCallBack) {
+    public  <T> void get(String url, Class<T> clazz, ResponseCallBack<T> responseCallBack) {
         //构建Request对象
         Request request = new Request.Builder().url(url).build();
         sendHttpRequest(request, clazz, responseCallBack);
     }
 
     @Override
-    protected <T> void post(String url, Class<T> clazz, ResponseCallBack<T> responseCallBack, HashMap<String, String> body) {
+    public <T> void post(String url, Class<T> clazz, ResponseCallBack<T> responseCallBack, HashMap<String, String> body) {
         FormBody.Builder formBuilder = new FormBody.Builder();
 
         for (String s : body.keySet()) {

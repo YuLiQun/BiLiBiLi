@@ -7,10 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import qunzai.bilibili.internet.LoadingImageView;
+import qunzai.bilibili.utils.DensityUtils;
 
 
 /**
@@ -109,8 +111,17 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
 
     public CommonViewHolder setImage (int id ,String url){
         ImageView imageView = getView(id);
-        //TODO 这里有网络请求
-//        VolleySingleSimple.getInstance().getImage(url,imageView);
+        Glide.with(imageView.getContext()).load(url).into(imageView);
+        return this;
+    }
+
+    public CommonViewHolder setImage (int id ,String url,int width, int height){
+        ImageView imageView = getView(id);
+        ViewGroup.LayoutParams lp = imageView.getLayoutParams();
+        lp.width = width;
+        lp.height = height;
+        imageView.setLayoutParams(lp);
+        Glide.with(imageView.getContext()).load(url).into(imageView);
         return this;
     }
 
@@ -122,6 +133,16 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
 
     public CommonViewHolder setLoadingImage(int id, String url){
         LoadingImageView imageView = getView(id);
+        imageView.loadImageDefault(url);
+        return this;
+    }
+
+    public CommonViewHolder setLoadingImage(int id, String url,int width, int height){
+        LoadingImageView imageView = getView(id);
+        ViewGroup.LayoutParams lp = imageView.getLayoutParams();
+        lp.width = width;
+        lp.height = height;
+        imageView.setLayoutParams(lp);
         imageView.loadImageDefault(url);
         return this;
     }
@@ -158,6 +179,5 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
     public void setCircleImg(int id,String url){
         ImageView imageView = getView(id);
         //TODO 这里也有网络请求
-//        VolleySingleSimple.getInstance().getCircleImg(url,imageView);
     }
 }

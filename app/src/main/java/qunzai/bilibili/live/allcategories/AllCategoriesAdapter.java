@@ -1,6 +1,7 @@
 package qunzai.bilibili.live.allcategories;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ public class AllCategoriesAdapter extends RecyclerView.Adapter<CommonViewHolder>
 
     public void setAllCategoriesBean(AllCategoriesBean allCategoriesBean) {
         mAllCategoriesBean = allCategoriesBean;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -31,9 +33,20 @@ public class AllCategoriesAdapter extends RecyclerView.Adapter<CommonViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(CommonViewHolder holder, int position) {
+    public void onBindViewHolder(CommonViewHolder holder, final int position) {
         holder.setImage(R.id.item_all_categories_loading_iv
-                ,mAllCategoriesBean.getData().get(position).getEntrance_icon().getSrc());
+                ,mAllCategoriesBean.getData().get(position).getEntrance_icon().getSrc()
+                ,mAllCategoriesBean.getData().get(position).getEntrance_icon().getWidth()
+                ,mAllCategoriesBean.getData().get(position).getEntrance_icon().getHeight())
+                .setText(R.id.item_all_categories_loading_tv
+                ,mAllCategoriesBean.getData().get(position).getName())
+                .setItemClick(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("AllCategoriesAdapter", mAllCategoriesBean.getData().get(position).getName());
+                    }
+                });
+
     }
 
     @Override

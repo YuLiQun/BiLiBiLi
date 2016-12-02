@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
+        android:name=".base.BilibiliApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +17,7 @@
         <activity
             android:name=".main.MainActivity"
             android:theme="@style/NoTheme"
-            >
+        >
         </activity>
         <activity
             android:name=".main.IjkPlayerTestActivity"
@@ -24,7 +25,8 @@
 
         </activity>
         <activity android:name=".live.allcategories.AllCategoriesActivity"
-            android:theme="@style/NoTheme">
+                  android:hardwareAccelerated="false"
+                  android:theme="@style/NoTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
