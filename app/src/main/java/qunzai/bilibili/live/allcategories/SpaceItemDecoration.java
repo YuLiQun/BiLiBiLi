@@ -22,7 +22,6 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
         space = (getScreenWidth() - view.getHeight() * 3) / 6;
         outRect.left = space;
         outRect.right = space;
-        outRect.bottom = space / 3;
-        outRect.top = space / 3;
+        outRect.top = space / 2;
     }
 }

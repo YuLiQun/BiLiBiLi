@@ -24,7 +24,7 @@
             android:configChanges="navigation">
 
         </activity>
-        <activity android:name=".live.allcategories.AllCategoriesActivity"
+        <activity android:name=".live.allcategories.view.AllCategoriesActivity"
                   android:hardwareAccelerated="false"
                   android:theme="@style/NoTheme">
             <intent-filter>

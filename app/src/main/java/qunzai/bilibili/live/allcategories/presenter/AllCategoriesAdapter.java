@@ -1,4 +1,4 @@
-package qunzai.bilibili.live.allcategories;
+package qunzai.bilibili.live.allcategories.presenter;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -43,7 +43,8 @@ public class AllCategoriesAdapter extends RecyclerView.Adapter<CommonViewHolder>
                 .setItemClick(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Log.d("AllCategoriesAdapter", mAllCategoriesBean.getData().get(position).getName());
+                        switch (mAllCategoriesBean.getData().get(position).getId()) {
+                        }
                     }
                 });
 
