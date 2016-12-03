@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/NoTheme">
         <activity
-            android:name=".main.MainActivity"
+            android:name=".main.guidepage.GuidePageActivity"
             >
 
             <intent-filter>
@@ -36,6 +36,7 @@
             >
 
         </activity>
+        <activity android:name=".main.MainActivity"/>
     </application>
 
 </manifest>
