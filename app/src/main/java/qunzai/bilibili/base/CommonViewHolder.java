@@ -108,6 +108,17 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
+
+    public ImageView setImageAttribute(int id) {
+        ImageView imageView = getView(id);
+
+        return imageView;
+    }
+
+
+
+
+
     public CommonViewHolder setImage(int id, String url) {
         ImageView imageView = getView(id);
         //TODO 这里有网络请求

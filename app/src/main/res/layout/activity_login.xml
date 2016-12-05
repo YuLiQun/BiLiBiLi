@@ -109,6 +109,7 @@
             android:text="登录"
             android:gravity="center"
             android:layout_marginLeft="5dp"
+            android:id="@+id/activity_login_login_tv"
             />
 
     </LinearLayout>

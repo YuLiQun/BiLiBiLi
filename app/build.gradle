@@ -17,6 +17,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    android {
+        sourceSets {
+            main.jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    repositories{
+        flatDir{
+            dirs 'libs' //就是你放aar的目录地址,自己添加的
+        }
+    }
+
+
 }
 
 dependencies {
@@ -39,11 +54,28 @@ dependencies {
     //    compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.7.4'
     compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.7.4'
     //    compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.7.4'
+
     //    # ExoPlayer as IMediaPlayer: optional, experimental
     compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.7.4'
     //    #  弹幕
+
+
+
     compile 'com.github.ctiao:DanmakuFlameMaster:0.6.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.google.code.gson:gson:2.8.0'
+
+    compile files('libs/BmobSDK_3.5.2_20161027.jar')
+    compile files('libs/MobCommons-2016.1012.1447.jar')
+    compile files('libs/MobTools-2016.1012.1447.jar')
+
+    //compile files('libs/okio-1.7.0.jar')
+    compile files('libs/org.apache.http.legacy.jar')
+    compile files('libs/rxandroid-1.2.0.jar')
+    compile files('libs/rxjava-1.1.6.jar')
+    compile name: 'SMSSDK-2.1.2', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
+
+    compile 'org.greenrobot:eventbus:3.0.0'
 }

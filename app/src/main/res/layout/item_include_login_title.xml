@@ -16,6 +16,7 @@
         />
 
     <TextView
+        android:id="@+id/include_login_title_tv"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
@@ -32,6 +33,7 @@
         android:textColor="#ffffff"
         android:textSize="15dp"
         android:layout_marginRight="10dp"
+        android:id="@+id/include_login_little_title_tv"
         />
 
 

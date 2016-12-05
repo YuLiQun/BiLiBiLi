@@ -1,7 +1,11 @@
 package qunzai.bilibili.classify;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import java.util.ArrayList;
 
 import qunzai.bilibili.R;
 import qunzai.bilibili.base.CommonViewHolder;
@@ -10,6 +14,18 @@ import qunzai.bilibili.base.CommonViewHolder;
  * Created by QunZai on 16/11/26.
  */
 public class ClassifyAdapter extends RecyclerView.Adapter {
+
+    private OnRvClickListener mOnRvClickListener;
+    private ArrayList<String> id;
+
+    public ClassifyAdapter(ArrayList<String> id) {
+        this.id = id;
+    }
+
+    public void setOnRvClickListener(OnRvClickListener onRvClickListener) {
+        mOnRvClickListener = onRvClickListener;
+    }
+
     int icon[] = {R.mipmap.ic_category_live, R.mipmap.ic_category_t13, R.mipmap.ic_category_t1,
             R.mipmap.ic_category_t3, R.mipmap.ic_category_t129, R.mipmap.ic_category_t4,
             R.mipmap.ic_category_t36, R.mipmap.ic_category_t160, R.mipmap.ic_category_t119,
@@ -27,10 +43,17 @@ public class ClassifyAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         CommonViewHolder viewHolder = (CommonViewHolder) holder;
         viewHolder.setImage(R.id.item_classify_icon_img,icon[position]);
         viewHolder.setText(R.id.item_classify_title_tv,title[position]);
+
+        viewHolder.setImageAttribute(R.id.item_classify_icon_img).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mOnRvClickListener.onClick(position);
+            }
+        });
     }
 
     @Override

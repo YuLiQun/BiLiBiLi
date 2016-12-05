@@ -47,12 +47,10 @@ public class FindFragment extends BaseFragment {
         mContentCV = bindView(mContentView,R.id.fragment_find_custom_cv);
 
 
-
     }
     @Override
     protected void initData() {
         FindAdapter adapter = new FindAdapter();
-
 
         LinearLayoutManager manager = new LinearLayoutManager(mContext);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
