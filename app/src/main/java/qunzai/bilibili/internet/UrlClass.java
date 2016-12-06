@@ -40,6 +40,11 @@ package qunzai.bilibili.internet;
          
         */
 
+import android.text.TextUtils;
+
+import static qunzai.bilibili.live.allcategories.Values.HOTTEST_TPYE;
+import static qunzai.bilibili.utils.UrlUtil.getURLEncoderString;
+
 /**
  * Created by XingMingDa on 16/10/22.
  * BiliBili的Url
@@ -300,210 +305,40 @@ public final class UrlClass {
      */
     public static final String URL_ALL_CATEGORIES = "http://live.bilibili.com/AppIndex/areas?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&build=429001&mobi_app=android&platform=android&scale=xhdpi&sign=b69f54200dab045d424f197778b12137";
 
-    /**
-     * 手机直播
-     */
-    public static String sMobileLiveUrl(int page, int type) {
-        if (type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=12&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=hottest&sign=6f925211b3cce4a43d339fb8bd3c5f70";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=12&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=8166c6fd872eda7a6351730f676baf61";
-            return url;
-        }
+
+    public static String CategoriesUrl(int Categories){
+        return CategoriesUrl(Categories,1);
     }
 
-    /**
-     * 手游直播
-     */
-    public static String sMobileGameLiveUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=12&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=hottest&sign=6f925211b3cce4a43d339fb8bd3c5f70";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=12&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=8166c6fd872eda7a6351730f676baf61";
-            return url;
-        }
+    public static String CategoriesUrl(int Categories, int page){
+        return CategoriesUrl(Categories,page,"");
     }
 
-    /**
-     * 萌宅推荐
-     */
-    public static String sMOECurtilageUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=8&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=hottest&sign=49478d7453d6e599327441d04b0c9edb";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=8&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=852436acfe36512e1a6b35439ca02114";
-            return url;
-        }
+    public static String CategoriesUrl(int Categories, int page,String type){
+        return CategoriesUrl(Categories,page,type,"");
     }
 
-    /**
-     * 绘画专区
-     */
-    public static String sPaintingZoneUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=9&build=430000&mobi_app=android&page=" +
-                    page +"&platform=android&sort=hottest&sign=a37f6238fcd47b8a4335e99910a2c501";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=9&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=0c2dd1a624249d4eedc18d6f6e61d42a";
-            return url;
-        }
-    }
+    public static String CategoriesUrl(int Categories, int page,String type,String subCategories){
 
-    /**
-     * 网络游戏
-     */
-    public static String sOnlineGameUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=3&build=430000&mobi_app=android&page=" +
-                    page +"&platform=android&sort=hottest&sign=ebf3f4ac5164bf8a472de0afcb478b6b";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=3&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=473f18a0771ea1e66b96fb5af73e910c";
-            return url;
-        }
-    }
+        String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id={0}&build=430000&mobi_app=android&page={1}&platform=android&sort={2}{3}&sign=525ead6fbe1d070ba8bfdda9cdc740e8";
 
-    /**
-     * 单机游戏
-     */
-    public static String sPCGameUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=1&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=hottest&sign=fdf490619ef2b55ab865b2c29fa83761";
-            return url;
+        if(TextUtils.isEmpty(subCategories)){
+            url = url.replace("{3}","&tag=" + getURLEncoderString(subCategories));
         }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=1&build=430000&mobi_app=android&page=" +
-                    page +"&platform=android&sort=latest&sign=86d81a6d10d816ce391d704b82fdf762";
-            return url;
+            url = url.replace("{3}","");
         }
-    }
 
-    /**
-     * 电子竞技
-     */
-    public static String sESportsUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=4&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=hottest&sign=ce85c3938ab175b57cfb25247034d1cf";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=4&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=f13ced6a276b8a31925d36a5a3ab36ef";
-            return url;
+        if(TextUtils.isEmpty(type) && "latest".equals(type)){
+            url = url.replace("{2}","latest");
+        }else{
+            url = url.replace("{2}","hottest");
         }
-    }
 
-    /**
-     * 唱见舞见
-     */
-    public static String sSingDanceUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=10&build=430000&mobi_app=android&page=" +
-                    page +"&platform=android&sort=hottest&sign=0f4dd5d908a7fdff3844835cdb5282b0";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=10&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=ee5d7dc58291ea7b3fea6f37aa62b723";
-            return url;
-        }
-    }
+        url = url.replace("{1}",String.valueOf(page));
+        url = url.replace("{0}",String.valueOf(Categories));
 
-    /**
-     * 生活娱乐
-     */
-    public static String sLifeFunUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=6&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=hottest&sign=c2319fa2d92649cf383d57c2251f15b1";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=6&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=8889efe09daa427e4ba73fc4501bd133";
-            return url;
-        }
+        return url;
     }
-
-    /**
-     * 御宅文化
-     */
-    public static String sOtakuCultureUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=2&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=hottest&sign=4b51f12930ba4114d034d593f15ceb1d";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=2&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=dd76d4c9d4890c9d75029391b34e923f";
-            return url;
-        }
-    }
-
-    /**
-     * 放映厅
-     */
-    public static String sScreeningRoomUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=7&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=hottest&sign=a8cc65a791f935ce377561966c477a76";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=7&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=ef8451166088751699b4ea73b3bee686";
-            return url;
-        }
-    }
-
-    /**
-     * 精彩轮播
-     */
-    public static String sCarouselUrl(int page, int type) {
-        if(type == 0) {
-            //推荐
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=99&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=hottest&sign=d7b9f4622e79e2a92c04258acf11a6e6";
-            return url;
-        }else {
-            //最新
-            String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=99&build=430000&mobi_app=android&page=" +
-                    page + "&platform=android&sort=latest&sign=525ead6fbe1d070ba8bfdda9cdc740e8";
-            return url;
-        }
-    }
-
 
 
 }

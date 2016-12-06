@@ -20,7 +20,7 @@
         >
         </activity>
         <activity
-            android:name=".main.IjkPlayerTestActivity"
+            android:name=".live.allcategories.view.IjkPlayerTestActivity"
             android:configChanges="navigation">
 
         </activity>
@@ -32,6 +32,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".live.allcategories.view.CategoriesActivity"
+                  android:theme="@style/NoTheme">
         </activity>
     </application>
 

@@ -5,8 +5,6 @@ import qunzai.bilibili.internet.OkHttpManager;
 import qunzai.bilibili.internet.ResponseCallBack;
 import qunzai.bilibili.live.allcategories.presenter.OnGetAllCategoriesBeanListener;
 
-import static qunzai.bilibili.internet.UrlClass.URL_ALL_CATEGORIES;
-
 /**
  * Created by XingMingDa on 16/12/3.
  * MVP的Model

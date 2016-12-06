@@ -1,4 +1,4 @@
-package qunzai.bilibili.live.allcategories;
+package qunzai.bilibili.live.allcategories.presenter;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
