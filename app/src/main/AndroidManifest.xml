@@ -46,7 +46,6 @@
             android:name=".main.guidepage.GuidePageActivity"
             >
 
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
