@@ -2,8 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:background="#fc6f97"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+
+    >
+    <!--android:background="?attr/zzbackground"-->
 
     <ImageView
         android:layout_width="wrap_content"
@@ -43,6 +47,17 @@
         android:layout_alignParentRight="true"
         android:layout_margin="20dp"
         android:id="@+id/item_drawer_header_moon_img"
+        />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_switch_daily"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:visibility="invisible"
+        android:id="@+id/item_drawer_header_sun_img"
         />
 
 </RelativeLayout>

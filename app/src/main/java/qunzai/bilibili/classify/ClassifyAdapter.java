@@ -16,11 +16,7 @@ import qunzai.bilibili.base.CommonViewHolder;
 public class ClassifyAdapter extends RecyclerView.Adapter {
 
     private OnRvClickListener mOnRvClickListener;
-    private ArrayList<String> id;
 
-    public ClassifyAdapter(ArrayList<String> id) {
-        this.id = id;
-    }
 
     public void setOnRvClickListener(OnRvClickListener onRvClickListener) {
         mOnRvClickListener = onRvClickListener;
@@ -48,12 +44,12 @@ public class ClassifyAdapter extends RecyclerView.Adapter {
         viewHolder.setImage(R.id.item_classify_icon_img,icon[position]);
         viewHolder.setText(R.id.item_classify_title_tv,title[position]);
 
-        viewHolder.setImageAttribute(R.id.item_classify_icon_img).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mOnRvClickListener.onClick(position);
-            }
-        });
+//        viewHolder.setImageAttribute(R.id.item_classify_icon_img).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mOnRvClickListener.onClick(position);
+//            }
+//        });
     }
 
     @Override

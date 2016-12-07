@@ -3,10 +3,16 @@ package qunzai.bilibili.drawer;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,29 +26,46 @@ import qunzai.bilibili.base.BaseFragment;
 import qunzai.bilibili.bean.EventBusBean;
 import qunzai.bilibili.drawer.login.LoginActivity;
 import qunzai.bilibili.drawer.login.LoginAfterActivity;
+import qunzai.bilibili.main.MainActivity;
+
 
 /**
  * Created by QunZai on 16/11/24.
  */
 
-public class DrawerFragment extends BaseFragment {
+public class DrawerFragment extends BaseFragment implements View.OnClickListener {
 
     private ListView mLv;
     private TextView mUsername;
+    private ImageView mImgMoon,mImgSun;
+
 
     @Override
-    protected int getLayout() {
-        return R.layout.fragment_drawer;
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
     }
 
     @Override
+    protected int getLayout() {
+
+        return R.layout.fragment_drawer;
+    }
+
+
+    @Override
     protected void initViews() {
+
         /*注册EventBus*/
         EventBus.getDefault().register(this);
         mLv = bindView(R.id.fragment_drawer_lv);
         View headView = LayoutInflater.from(mContext).inflate(R.layout.item_drawer_header,null);
         mLv.addHeaderView(headView);
         mUsername = bindView(headView, R.id.item_drawer_header_username_tv);
+        mImgMoon = bindView(headView, R.id.item_drawer_header_moon_img);
+        mImgSun = bindView(headView, R.id.item_drawer_header_sun_img);
+        mImgMoon.setOnClickListener(this);
+        mImgSun.setOnClickListener(this);
 
     }
 
@@ -51,7 +74,11 @@ public class DrawerFragment extends BaseFragment {
         DrawerAdapter adapter = new DrawerAdapter();
         mLv.setAdapter(adapter);
         mLvClick();
+
+
     }
+
+
 
     private void mLvClick() {
         mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -84,6 +111,26 @@ public class DrawerFragment extends BaseFragment {
     public void getTextEvent(EventBusBean eventBusBean){
         String username = eventBusBean.getUsername();
         mUsername.setText(username);
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        TypedValue attrTypedValue;
+        switch (view.getId()) {
+            case R.id.item_drawer_header_moon_img://点击变成夜间模式
+                mImgMoon.setVisibility(View.INVISIBLE);
+                mImgSun.setVisibility(View.VISIBLE);
+
+                break;
+
+            case R.id.item_drawer_header_sun_img://点击变成日间模式
+                mImgSun.setVisibility(View.INVISIBLE);
+                mImgMoon.setVisibility(View.VISIBLE);
+
+                break;
+
+        }
     }
 
 

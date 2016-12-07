@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import qunzai.bilibili.R;
 import qunzai.bilibili.base.BaseFragment;
 import qunzai.bilibili.bean.ClassifyTitleBean;
-import qunzai.bilibili.classify.child.ClassifyChildActivity;
 import qunzai.bilibili.internet.OkHttpManager;
 import qunzai.bilibili.internet.ResponseCallBack;
 import qunzai.bilibili.internet.UrlClass;
@@ -23,7 +22,7 @@ public class ClassifyFragment extends BaseFragment {
 
 
     private RecyclerView mRv;
-    private ArrayList<String> mArrayListId;
+
     private ClassifyAdapter mAdapter;
 
     @Override
@@ -40,53 +39,14 @@ public class ClassifyFragment extends BaseFragment {
     @Override
     protected void initData() {
 
+        mAdapter = new ClassifyAdapter();
+        mRv.setAdapter(mAdapter);
 
-        OkHttpManager okHttpManager = new OkHttpManager();
-        okHttpManager.get(UrlClass.URL_LIVE_TAAG, ClassifyTitleBean.class, new ResponseCallBack<ClassifyTitleBean>() {
-            @Override
-            public void onResponse(ClassifyTitleBean classifyTitleBean) {
-                mArrayListId = new ArrayList<String>();
-                int size = classifyTitleBean.getData().size();
-                for (int i = 0; i < size; i++) {
-                    int id = classifyTitleBean.getData().get(i).getId();
-
-                    mArrayListId.add(String.valueOf(id));
-                }
-
-                mAdapter = new ClassifyAdapter(mArrayListId);
-                mRv.setAdapter(mAdapter);
-
-                GridLayoutManager layoutManager = new GridLayoutManager(mContext,3,GridLayoutManager.VERTICAL,false);
-                mRv.setLayoutManager(layoutManager);
-
-                initClick();
-
-            }
-
-            @Override
-            public void onError(Exception exception) {
-
-            }
-        });
+        GridLayoutManager layoutManager = new GridLayoutManager(mContext, 3, GridLayoutManager.VERTICAL, false);
+        mRv.setLayoutManager(layoutManager);
 
 
 
-    }
-
-    private void initClick() {
-        mAdapter.setOnRvClickListener(new OnRvClickListener() {
-            @Override
-            public void onClick(int position) {
-                String id = mArrayListId.get(position);
-
-                String url = UrlClass.URL_ALL_TYPE(Integer.valueOf(id));
-                Intent intent = new Intent(mContext,ClassifyChildActivity.class);
-                intent.putExtra("ClassifyUrl",url);
-                intent.putExtra("position",position);
-                startActivity(intent);
-
-            }
-        });
     }
 
 

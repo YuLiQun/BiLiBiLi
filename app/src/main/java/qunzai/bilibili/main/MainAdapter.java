@@ -15,7 +15,7 @@ import qunzai.bilibili.base.BaseFragment;
  */
 public class MainAdapter extends FragmentPagerAdapter {
     private ArrayList<BaseFragment> mFragments;
-    private String title[] = {"直播", "推荐", "客服","分区", "关注", "发现"};
+    private String title[] = {"直播", "游戏", "客服","分区", "关注", "发现"};
 
 
     public MainAdapter(FragmentManager fm, ArrayList<BaseFragment> fragments) {
