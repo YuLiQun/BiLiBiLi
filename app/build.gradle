@@ -72,5 +72,5 @@ dependencies {
     compile name: 'SMSSDK-2.1.2', ext: 'aar'
     compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.android.support:design:25.0.1'
+
 }
