@@ -39,7 +39,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/NoTheme">
-        <activity android:name=".main.MainActivity">
+
+        <activity android:name=".main.MainActivity"/>
+
+        <activity
+            android:name=".main.guidepage.GuidePageActivity"
+            >
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -56,17 +63,14 @@
         </activity>
         <activity android:name=".drawer.logon.LogonActivity"/>
         <activity android:name=".drawer.login.LoginAfterActivity"/>
-        <activity android:name=".classify.child.ClassifyChildActivity"/>
+
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <activity
-            android:name=".classify.child.ScrollingActivity"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/NoTheme">
-        </activity>
+
+
     </application>
 
 </manifest>
