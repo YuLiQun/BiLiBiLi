@@ -1,6 +1,7 @@
-package qunzai.bilibili.main;
+package qunzai.bilibili.live.allcategories.view;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 
 import java.util.Random;
@@ -15,6 +16,7 @@ import master.flame.danmaku.danmaku.parser.BaseDanmakuParser;
 import master.flame.danmaku.ui.widget.DanmakuView;
 import qunzai.bilibili.R;
 import qunzai.bilibili.base.BaseActivity;
+import qunzai.bilibili.bean.CategoriesBean;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.ijk.media.widget.media.AndroidMediaController;
 import tv.danmaku.ijk.media.widget.media.IjkVideoView;
@@ -27,7 +29,7 @@ import tv.danmaku.ijk.media.widget.media.IjkVideoView;
 public class IjkPlayerTestActivity extends BaseActivity {
 
     private IjkVideoView mIjkVideoView;
-    private String mVideoPath = "http://xl.live-play.acgvideo.com/live-xl/570653/live_185546_1530569.flv?wsSecret=6cca1e4d59cc9fb80cb3124573de1b52&wsTime=1479982801";
+    private String mVideoPath = "";
     private boolean mBackPressed;
     private DanmakuView mDanmakuView;
     private boolean mShowDanmaku;
@@ -58,10 +60,13 @@ public class IjkPlayerTestActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        Bundle bundle = getIntent().getBundleExtra("IjkPlayerData");
+        CategoriesBean bean = (CategoriesBean) bundle.get("Data");
+        int position = bundle.getInt("Position");
+        mVideoPath = bean.getData().get(position).getPlayurl();
         IjkMediaPlayer.loadLibrariesOnce(null);
         IjkMediaPlayer.native_profileBegin("libijkplayer.so");
         mMediaController = new AndroidMediaController(this,false);
-//        mMediaController.setSupportActionBar(mActionBar);
         mIjkVideoView.setMediaController(mMediaController);
         if (mIjkVideoView != null) {
             mIjkVideoView.setVideoPath(mVideoPath);

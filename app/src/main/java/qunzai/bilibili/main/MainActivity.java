@@ -2,6 +2,7 @@ package qunzai.bilibili.main;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -10,6 +11,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+
+import android.support.v4.view.ViewPager;
+
 
 import java.nio.Buffer;
 import java.util.ArrayList;
@@ -64,7 +68,6 @@ public class MainActivity extends BaseActivity {
         MainAdapter adapter = new MainAdapter(getSupportFragmentManager(),fragments);
         vp.setAdapter(adapter);
         tb.setupWithViewPager(vp);
-
 
 
     }

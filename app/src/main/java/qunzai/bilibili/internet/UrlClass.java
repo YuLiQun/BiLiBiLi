@@ -40,6 +40,11 @@ package qunzai.bilibili.internet;
          
         */
 
+import android.text.TextUtils;
+
+import static qunzai.bilibili.live.allcategories.Values.HOTTEST_TPYE;
+import static qunzai.bilibili.utils.UrlUtil.getURLEncoderString;
+
 /**
  * Created by XingMingDa on 16/10/22.
  * BiliBili的Url
@@ -144,11 +149,6 @@ public final class UrlClass {
      */
     //直播标签
     public static final String URL_LIVE_TAAG = "http://live.bilibili.com/AppIndex/areas?_device=android&_hwid=844cebfd4683c8d8&_ulv=5000&access_key=7ae7d856f4eee8afa300f6f17ddcb2fc&appkey=1d8b6e7d45233436&build=427000&mobi_app=android&platform=android&scale=hdpi&sign=69e138520fa533d03bd4a6de9839d8af";
-
-    /**
-     * 直播全部分类
-     */
-    public static final String URL_ALL_CATEGORIES = "http://live.bilibili.com/AppIndex/areas?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&build=429001&mobi_app=android&platform=android&scale=xhdpi&sign=b69f54200dab045d424f197778b12137";
 
     /**
      * 发现
@@ -298,6 +298,47 @@ public final class UrlClass {
     public static final String OVERSEAS = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=11&build=427000&mobi_app=android&page=1&platform=android&sort=hottest&tag=%E6%B5%B7%E5%A4%96%E7%95%99%E5%AD%A6&sign=e020487063f4ef4f218fe8efc6d8a304";
     //个人自拍
     public static final String URL_OUR = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=11&build=427000&mobi_app=android&page=1&platform=android&sort=hottest&tag=%E4%B8%AA%E4%BA%BA%E8%87%AA%E6%8B%8D&sign=87ecf33da1f5916ebb0463b8f7fefa70";
+
+
+    /**
+     * 直播全部分类图标
+     */
+    public static final String URL_ALL_CATEGORIES = "http://live.bilibili.com/AppIndex/areas?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&build=429001&mobi_app=android&platform=android&scale=xhdpi&sign=b69f54200dab045d424f197778b12137";
+
+
+    public static String CategoriesUrl(int Categories){
+        return CategoriesUrl(Categories,1);
+    }
+
+    public static String CategoriesUrl(int Categories, int page){
+        return CategoriesUrl(Categories,page,"");
+    }
+
+    public static String CategoriesUrl(int Categories, int page,String type){
+        return CategoriesUrl(Categories,page,type,"");
+    }
+
+    public static String CategoriesUrl(int Categories, int page,String type,String subCategories){
+
+        String url = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id={0}&build=430000&mobi_app=android&page={1}&platform=android&sort={2}{3}&sign=525ead6fbe1d070ba8bfdda9cdc740e8";
+
+        if(TextUtils.isEmpty(subCategories)){
+            url = url.replace("{3}","&tag=" + getURLEncoderString(subCategories));
+        }else {
+            url = url.replace("{3}","");
+        }
+
+        if(TextUtils.isEmpty(type) && "latest".equals(type)){
+            url = url.replace("{2}","latest");
+        }else{
+            url = url.replace("{2}","hottest");
+        }
+
+        url = url.replace("{1}",String.valueOf(page));
+        url = url.replace("{0}",String.valueOf(Categories));
+
+        return url;
+    }
 
 
 }

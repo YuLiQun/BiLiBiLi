@@ -11,4 +11,9 @@
 
 
 
+
+    <color name="colorFonts">#000000</color>
+    <color name="colorTitleFonts">#FFFFFF</color>
+    <color name="colorTitleBackground">#FB7299</color>
+
 </resources>

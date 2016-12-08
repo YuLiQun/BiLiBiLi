@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/layout_title_search_ll"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <io.codetail.widget.RevealFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="7dp">
+
+        <LinearLayout
+            android:id="@+id/layout_title_search_content_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <io.codetail.widget.RevealLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/layout_title_search_edit_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff">
+
+                    <ImageView
+                        android:id="@+id/layout_title_search_back_iv"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:padding="7dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_arrow_back_black"/>
+
+                    <ImageView
+                        android:id="@+id/layout_title_search_scan_iv"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:padding="7dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_scan"/>
+
+                    <EditText
+                        android:id="@+id/layout_title_search_edit_search_et"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="13dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="search"
+                        android:inputType="textPersonName"
+                        android:textColor="#333333"
+                        android:textColorHint="#cccccc">
+
+                        <requestFocus/>
+                    </EditText>
+
+                    <ImageView
+                        android:id="@+id/layout_title_search_img_search_iv"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:padding="7dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_search_query"/>
+
+                </LinearLayout>
+
+            </io.codetail.widget.RevealLinearLayout>
+
+            <LinearLayout
+                android:id="@+id/items"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:paddingLeft="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="New Text"
+                    android:textColor="#333333"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="New Text"
+                    android:textColor="#333333"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="New Text"
+                    android:textColor="#333333"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="New Text"
+                    android:textColor="#333333"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </io.codetail.widget.RevealFrameLayout>
+
+</LinearLayout>
