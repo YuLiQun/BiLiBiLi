@@ -27,7 +27,6 @@ import qunzai.bilibili.concern.ConcernFragment;
 import qunzai.bilibili.drawer.DrawerFragment;
 import qunzai.bilibili.find.FindFragment;
 import qunzai.bilibili.live.LiveFragment;
-import qunzai.bilibili.recommend.RecommendFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -60,7 +59,6 @@ public class MainActivity extends BaseActivity {
 
         ArrayList<BaseFragment> fragments = new ArrayList<>();
         fragments.add(new LiveFragment());
-        fragments.add(new RecommendFragment());
         fragments.add(new CommunicationFragment());
         fragments.add(new ClassifyFragment());
         fragments.add(new ConcernFragment());
