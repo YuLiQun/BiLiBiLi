@@ -1,17 +1,27 @@
 package qunzai.bilibili.find;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
+
+import cn.bmob.v3.b.I;
 import qunzai.bilibili.R;
 import qunzai.bilibili.base.BaseFragment;
 import qunzai.bilibili.base.HeaderAdapter;
+import qunzai.bilibili.bean.FindSearchBean;
 import qunzai.bilibili.bean.FindTextBean;
 import qunzai.bilibili.internet.OkHttpManager;
 import qunzai.bilibili.internet.ResponseCallBack;
@@ -23,7 +33,7 @@ import qunzai.bilibili.utils.SingletonUtils;
  * Created by QunZai on 16/11/22.
  */
 
-public class FindFragment extends BaseFragment {
+public class FindFragment extends BaseFragment  {
 
     private RecyclerView mRv;
     private View mSearchView;
@@ -31,6 +41,8 @@ public class FindFragment extends BaseFragment {
     private View mTextView;
     private TextView mTextTv;
     private CustomView mContentCV;
+    private EditText mSeachEt;
+    private ListView mSeachLv;
 
     @Override
     protected int getLayout() {
@@ -42,17 +54,19 @@ public class FindFragment extends BaseFragment {
 
 
         mRv = bindView(R.id.fragment_find_rv);
-        mSearchView = LayoutInflater.from(mContext).inflate(R.layout.fragment_find_search,null);
-        mContentView = LayoutInflater.from(mContext).inflate(R.layout.fragment_find_content,null);
-        mContentCV = bindView(mContentView,R.id.fragment_find_custom_cv);
+        mSearchView = LayoutInflater.from(mContext).inflate(R.layout.fragment_find_search, null);
+        mContentView = LayoutInflater.from(mContext).inflate(R.layout.fragment_find_content, null);
+        mContentCV = bindView(mContentView, R.id.fragment_find_custom_cv);
+        mSeachEt = bindView(mSearchView, R.id.fragment_find_search_et);
+
 
 
     }
+
     @Override
     protected void initData() {
         FindAdapter adapter = new FindAdapter();
-
-        LinearLayoutManager manager = new LinearLayoutManager(mContext);
+        final LinearLayoutManager manager = new LinearLayoutManager(mContext);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRv.setLayoutManager(manager);
 
@@ -63,6 +77,17 @@ public class FindFragment extends BaseFragment {
         headerAdapter.addHeadView(mSearchView);
         headerAdapter.addHeadView(mContentView);
         mRv.setAdapter(headerAdapter);
+
+
+
+        mSeachEt.setFocusable(false);
+        mSeachEt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext,FindShowActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initText() {
@@ -78,7 +103,7 @@ public class FindFragment extends BaseFragment {
 
                 for (int i = 0; i < size; i++) {
                     String keyword = findTextBean.getList().get(i).getKeyword();
-                    View view = LayoutInflater.from(mContext).inflate(R.layout.fragment_find_text,null);
+                    View view = LayoutInflater.from(mContext).inflate(R.layout.fragment_find_text, null);
                     mTextView = bindView(view, R.id.fragment_find_text_tv);
 
 
@@ -88,7 +113,7 @@ public class FindFragment extends BaseFragment {
 
                     mMarginLayoutParams = new ViewGroup.MarginLayoutParams(
                             ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    mMarginLayoutParams.setMargins(5,3,5,3);
+                    mMarginLayoutParams.setMargins(5, 3, 5, 3);
                     mContentCV.addView(mTextView, mMarginLayoutParams);
 
 
@@ -102,7 +127,13 @@ public class FindFragment extends BaseFragment {
         });
 
 
+
+
     }
+
+
+
+
 
 
 

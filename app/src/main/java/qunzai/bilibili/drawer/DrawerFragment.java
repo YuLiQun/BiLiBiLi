@@ -86,7 +86,6 @@ public class DrawerFragment extends BaseFragment implements View.OnClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-
                         SharedPreferences getSp = mContext.getSharedPreferences("LoggingStatus", Context.MODE_PRIVATE);
                         boolean isStatus = getSp.getBoolean("status", false);
                         String username = getSp.getString("username", "");

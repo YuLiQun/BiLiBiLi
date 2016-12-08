@@ -54,7 +54,6 @@ dependencies {
     //    compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.7.4'
     compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.7.4'
     //    compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.7.4'
-
     //    # ExoPlayer as IMediaPlayer: optional, experimental
     compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.7.4'
     //    #  弹幕
@@ -72,5 +71,4 @@ dependencies {
     compile name: 'SMSSDK-2.1.2', ext: 'aar'
     compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
     compile 'org.greenrobot:eventbus:3.0.0'
-
 }

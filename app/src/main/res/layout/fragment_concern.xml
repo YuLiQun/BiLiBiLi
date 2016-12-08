@@ -26,6 +26,7 @@
             android:layout_gravity="center"
             android:background="#fc6f97"
             android:text="登录"
+            android:id="@+id/fragment_concern_login_btn"
             android:textColor="#ffffff"/>
     </LinearLayout>
 
