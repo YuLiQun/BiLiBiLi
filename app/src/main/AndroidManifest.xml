@@ -22,16 +22,15 @@
         <activity
             android:name=".live.allcategories.view.IjkPlayerTestActivity"
             android:configChanges="navigation">
-
-        </activity>
-        <activity android:name=".live.allcategories.view.AllCategoriesActivity"
-                  android:hardwareAccelerated="false"
-                  android:theme="@style/NoTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".live.allcategories.view.AllCategoriesActivity"
+                  android:hardwareAccelerated="false"
+                  android:theme="@style/NoTheme">
         </activity>
         <activity android:name=".live.allcategories.view.CategoriesActivity"
                   android:theme="@style/NoTheme">

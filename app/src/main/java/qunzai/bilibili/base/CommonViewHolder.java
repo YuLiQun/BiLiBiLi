@@ -31,6 +31,14 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
     }
 
 
+    public static CommonViewHolder create(Context context, int layoutId, ViewGroup parent) {
+        View itemView = LayoutInflater.from(context).inflate(layoutId, parent, false);
+        return new CommonViewHolder(itemView);
+    }
+
+    public static CommonViewHolder create(View itemView) {
+        return new CommonViewHolder(itemView);
+    }
 
     /**
      * 通过View的id来指定View,,如果该View没有赋值,就先指向findViewById,,然后放到View的集合里
