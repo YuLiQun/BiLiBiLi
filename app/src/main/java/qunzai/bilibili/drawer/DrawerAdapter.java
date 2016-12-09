@@ -15,7 +15,7 @@ import qunzai.bilibili.base.CommonViewHolder;
 public class DrawerAdapter extends BaseAdapter {
 
     String title[] = {"首页","我的大会员","会员积分","离线缓存","我的收藏","历史记录"
-            ,"我的关注","我的钱包","主题选择", "设置与帮助"};
+            ,"我的关注","我的钱包","更新下载", "设置与帮助"};
 
     int icon[] = {R.mipmap.ic_homepage,R.mipmap.ic_nav_vip,R.mipmap.ic_nav_point,
             R.mipmap.ic_download_grey_24dp,R.mipmap.ic_collection,R.mipmap.ic_history,

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:id="@+id/activity_down_ll"
+              android:layout_width="match_parent"
+              android:gravity="center_vertical"
+              android:layout_height="80dp">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@mipmap/ycb"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="养车吧下载"
+        android:textSize="25dp"
+        />
+
+
+</LinearLayout>
