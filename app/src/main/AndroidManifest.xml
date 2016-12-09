@@ -26,7 +26,7 @@
 
         </activity>
         <activity
-            android:name=".live.allcategories.view.IjkPlayerTestActivity"
+            android:name=".player.IjkPlayerActivity"
             android:configChanges="navigation">
 
         </activity>

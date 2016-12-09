@@ -12,7 +12,7 @@ import qunzai.bilibili.classify.ClassifyFragment;
 import qunzai.bilibili.communication.CommunicationFragment;
 import qunzai.bilibili.concern.ConcernFragment;
 import qunzai.bilibili.find.FindFragment;
-import qunzai.bilibili.live.LiveFragment;
+import qunzai.bilibili.live.view.LiveFragment;
 import qunzai.bilibili.recommend.RecommendFragment;
 
 public class MainActivity extends BaseActivity {

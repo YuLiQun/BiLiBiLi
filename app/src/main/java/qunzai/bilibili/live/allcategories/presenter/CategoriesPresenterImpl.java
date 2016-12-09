@@ -5,7 +5,7 @@ import qunzai.bilibili.live.allcategories.model.CategoriesModelImpl;
 import qunzai.bilibili.live.allcategories.view.CategoriesActivity;
 
 /**
- * Created by dllo on 16/12/6.
+ * Created by XingMingDa on 16/12/6.
  */
 
 public class CategoriesPresenterImpl implements CategoriesPresenter, OnGetCategoriesBeanListener {

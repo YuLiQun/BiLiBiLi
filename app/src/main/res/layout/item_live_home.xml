@@ -8,7 +8,8 @@
     <com.jude.rollviewpager.RollPagerView
         android:id="@+id/item_live_head_roll_pager_view"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
+        app:rollviewpager_hint_gravity="right"
         app:rollviewpager_play_delay="3000"/>
 
     <LinearLayout

@@ -4,12 +4,33 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <tv.danmaku.ijk.media.widget.media.IjkVideoView
-        android:id="@+id/activity_ijk_player_test_ijk_video_view"
+        android:id="@+id/activity_ijk_player_ijk_video_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"/>
     <master.flame.danmaku.ui.widget.DanmakuView
-        android:id="@+id/activity_ijk_player_test_danmaku_view"
+        android:id="@+id/activity_ijk_player_danmaku_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    <LinearLayout
+        android:id="@+id/activity_ijk_player_operation_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/activity_ijk_player_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+        />
+
+        <ImageView
+            android:id="@+id/activity_ijk_player_send"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_send_grey"/>
+    </LinearLayout>
 </RelativeLayout>
