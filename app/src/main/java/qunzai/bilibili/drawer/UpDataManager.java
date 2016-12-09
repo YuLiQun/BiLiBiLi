@@ -33,7 +33,7 @@ import java.net.URL;
 import qunzai.bilibili.R;
 
 /**
- * Created by Administrator on 2016/4/28.
+ * Created by QunZai on 2016/12/9.
  */
 public class UpDataManager {
 
