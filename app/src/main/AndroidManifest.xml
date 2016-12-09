@@ -49,17 +49,18 @@
         android:supportsRtl="true"
         android:theme="@style/NoTheme">
 
-
-        <activity
-            android:name=".main.MainActivity"
+        <activity android:name=".main.SplashActivity"
             android:theme="@style/NoTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
 
+        <activity
+            android:name=".main.MainActivity"
+            android:theme="@style/NoTheme">
         </activity>
 
         <activity android:name=".main.guidepage.GuidePageActivity"/>

@@ -16,4 +16,8 @@
     <color name="colorTitleFonts">#FFFFFF</color>
     <color name="colorTitleBackground">#FB7299</color>
 
+    <color name="white">#FFFFFF</color>
+    <color name="line_bg">#e6e6e6</color>
+    <color name="window_background">#eaeaea</color>
+
 </resources>
