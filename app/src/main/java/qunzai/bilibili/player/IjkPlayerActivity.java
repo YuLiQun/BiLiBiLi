@@ -1,8 +1,13 @@
-package qunzai.bilibili.live.allcategories.view;
+package qunzai.bilibili.player;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.Random;
 
@@ -26,7 +31,7 @@ import tv.danmaku.ijk.media.widget.media.IjkVideoView;
  * IjkPlayer+Danmaku
  */
 
-public class IjkPlayerTestActivity extends BaseActivity {
+public class IjkPlayerActivity extends BaseActivity {
 
     private IjkVideoView mIjkVideoView;
     private String mVideoPath = "";
@@ -42,6 +47,9 @@ public class IjkPlayerTestActivity extends BaseActivity {
     };
     private AndroidMediaController mMediaController;
     private ActionBar mActionBar;
+    private LinearLayout mOperationLayout;
+    private ImageView mSend;
+    private EditText mEditText;
 
     @Override
     protected int getLayout() {
@@ -50,12 +58,15 @@ public class IjkPlayerTestActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-        mIjkVideoView = (IjkVideoView) findViewById(R.id.activity_ijk_player_test_ijk_video_view);
-        mDanmakuView = (DanmakuView) findViewById(R.id.activity_ijk_player_test_danmaku_view);
+        mIjkVideoView = bindView(R.id.activity_ijk_player_ijk_video_view);
+        mDanmakuView = bindView(R.id.activity_ijk_player_danmaku_view);
         mActionBar = getSupportActionBar();
         if(mActionBar != null){
             mActionBar.hide();
         }
+        mOperationLayout = (LinearLayout) findViewById(R.id.activity_ijk_player_operation_layout);
+        mSend = bindView(R.id.activity_ijk_player_send);
+        mEditText = bindView(R.id.activity_ijk_player_edit_text);
     }
 
     @Override
@@ -98,6 +109,36 @@ public class IjkPlayerTestActivity extends BaseActivity {
         });
         mDanmakuContext = DanmakuContext.create();
         mDanmakuView.prepare(parser, mDanmakuContext);
+
+        mDanmakuView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mOperationLayout.getVisibility() == View.GONE){
+                    mOperationLayout.setVisibility(View.VISIBLE);
+                }else {
+                    mOperationLayout.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        mSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String content = mEditText.getText().toString();
+                if(!TextUtils.isEmpty(content)){
+                    addDanmaku(content,true);
+                    mEditText.setText("");
+                }
+            }
+        });
+        getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int i) {
+                if(i == View.SYSTEM_UI_FLAG_VISIBLE){
+                    onWindowFocusChanged(true);
+                }
+            }
+        });
     }
 
     private void generateSomeDanmaku() {

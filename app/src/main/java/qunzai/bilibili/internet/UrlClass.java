@@ -299,7 +299,6 @@ public final class UrlClass {
     //个人自拍
     public static final String URL_OUR = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=11&build=427000&mobi_app=android&page=1&platform=android&sort=hottest&tag=%E4%B8%AA%E4%BA%BA%E8%87%AA%E6%8B%8D&sign=87ecf33da1f5916ebb0463b8f7fefa70";
 
-
     /**
      * 直播全部分类图标
      */

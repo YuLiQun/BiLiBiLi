@@ -68,7 +68,7 @@ public class AllCategoriesActivity extends BaseActivity implements AllCategories
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(this, "back", Toast.LENGTH_SHORT).show();
+       finish();
     }
 
     @Override
