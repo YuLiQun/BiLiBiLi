@@ -1,8 +1,8 @@
 package qunzai.bilibili.live;
 
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import qunzai.bilibili.R;
 import qunzai.bilibili.base.BaseFragment;
@@ -34,14 +34,12 @@ public class LiveFragment extends BaseFragment{
         mSwipeRefreshLayout = bindView(R.id.fragment_live_swipe);
         mRecyclerView = bindView(R.id.fragment_live_recycler_view);
         mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorTitleBackground));
+        GridLayoutManager manager = new GridLayoutManager(getContext(),6, GridLayoutManager.VERTICAL,false);
         mAdapter = new LiveLoadingMoreAdapter(getContext(),null,true);
-        mAdapter.setAddHaed(true);
         mAdapter.setOnMultiTypeItemClickListener(new OnMultiTypeItemClickListeners<LiveContentBean>() {
             @Override
             public void onItemClick(CommonViewHolder viewHolder, LiveContentBean data, int position, int viewType) {
-                if(data == null){
-                    Toast.makeText(getContext(), "我是头部", Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
 

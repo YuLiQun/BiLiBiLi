@@ -64,4 +64,8 @@
 
     <!-- -->
     <string name="activity_all_categories_title">全部分类</string>
+    <string name="item_live_head_concern_anchor">关注主播</string>
+    <string name="item_live_head_live_center">直播中心</string>
+    <string name="item_live_head_search_live">搜索直播</string>
+    <string name="item_live_head_all_categorise">全部分类</string>
 </resources>

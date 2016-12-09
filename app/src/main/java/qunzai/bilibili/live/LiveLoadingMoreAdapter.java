@@ -1,6 +1,7 @@
 package qunzai.bilibili.live;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class LiveLoadingMoreAdapter extends MultiTypeBaseAdapter<LiveContentBean
     @Override
     protected int getItemLayoutId(int viewType) {
         if (viewType == 0) {
-            return R.layout.item_live_head;
+            return R.layout.item_live_home;
         }
         return R.layout.item_live;
     }
@@ -51,5 +52,12 @@ public class LiveLoadingMoreAdapter extends MultiTypeBaseAdapter<LiveContentBean
         } else {
             return 1;
         }
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+
     }
 }
