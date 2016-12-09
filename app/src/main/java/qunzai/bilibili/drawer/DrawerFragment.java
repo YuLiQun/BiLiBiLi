@@ -109,7 +109,12 @@ public class DrawerFragment extends BaseFragment implements View.OnClickListener
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)//先发送后注册,,粘性,,,将发送和接受绑定在一起
     public void getTextEvent(EventBusBean eventBusBean){
         String username = eventBusBean.getUsername();
-        mUsername.setText(username);
+        if (username.length() != 0){
+            mUsername.setText(username);
+        }else {
+            mUsername.setText("未登录");
+        }
+
     }
 
 

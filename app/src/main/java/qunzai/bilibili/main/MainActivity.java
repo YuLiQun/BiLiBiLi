@@ -1,6 +1,8 @@
 package qunzai.bilibili.main;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 
 import android.support.v4.app.Fragment;
@@ -13,7 +15,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import android.support.v4.view.ViewPager;
+import android.widget.TextView;
 
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.nio.Buffer;
 import java.util.ArrayList;
@@ -21,6 +28,7 @@ import java.util.ArrayList;
 import qunzai.bilibili.R;
 import qunzai.bilibili.base.BaseActivity;
 import qunzai.bilibili.base.BaseFragment;
+import qunzai.bilibili.bean.EventBusBean;
 import qunzai.bilibili.classify.ClassifyFragment;
 import qunzai.bilibili.communication.CommunicationFragment;
 import qunzai.bilibili.concern.ConcernFragment;
@@ -36,6 +44,7 @@ public class MainActivity extends BaseActivity {
     private FrameLayout mFrameLayout;
     private FragmentManager mFragmentManager;
     private DrawerFragment mDrawerFragment;
+    private TextView mUsername;
 
     @Override
     protected int getLayout() {
@@ -43,11 +52,14 @@ public class MainActivity extends BaseActivity {
     }
     @Override
     protected void initViews() {
+        /*注册EventBus*/
+        EventBus.getDefault().register(this);
         tb = bindView(R.id.activity_main_tb);
         vp = bindView(R.id.activity_main_vp);
         mToolbar = bindView(R.id.activity_main_toolbar);
         mFrameLayout = bindView(R.id.fragment_drawer_fl);
         setSupportActionBar(mToolbar);
+        mUsername = bindView(R.id.include_username_tv);
     }
 
     @Override
@@ -68,8 +80,19 @@ public class MainActivity extends BaseActivity {
         tb.setupWithViewPager(vp);
 
 
+
     }
 
 
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)//先发送后注册,,粘性,,,将发送和接受绑定在一起
+    public void getTextEvent(EventBusBean eventBusBean){
+        String username = eventBusBean.getUsername();
+        if (username.length() != 0){
+            mUsername.setText(username);
+        }else {
+            mUsername.setText("未登录");
+        }
+
+    }
 
 }
