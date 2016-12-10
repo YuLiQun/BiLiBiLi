@@ -92,7 +92,8 @@ public class FindFragment extends BaseFragment  {
 
     private void initText() {
         OkHttpManager okHttpManager = new OkHttpManager();
-        okHttpManager.get(UrlClass.URL_FIND_LABEL, FindTextBean.class, new ResponseCallBack<FindTextBean>() {
+        okHttpManager.get(UrlClass.URL_FIND_LABEL, FindTextBean.class,
+                new ResponseCallBack<FindTextBean>() {
 
             private TextView mTextView;
             private ViewGroup.MarginLayoutParams mMarginLayoutParams;

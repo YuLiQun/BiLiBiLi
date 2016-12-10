@@ -105,7 +105,6 @@ public class TuringActivity extends BaseActivity implements View.OnClickListener
         mTuringRv.setLayoutManager(new LinearLayoutManager(this));
         TuringAdapter adapter = new TuringAdapter(this);
         mTuringRv.setAdapter(adapter);
-//        Intent intent = getIntent();
 
     }
 

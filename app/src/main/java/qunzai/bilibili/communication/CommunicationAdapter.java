@@ -13,7 +13,7 @@ import qunzai.bilibili.classify.OnRvClickListener;
  */
 public class CommunicationAdapter extends RecyclerView.Adapter {
 
-    String comm[] = {""};
+    String comm[] = {"你好我是你的客服图灵机器人"};
     private OnRvClickListener mOnRvClickListener;
 
     public void setOnRvClickListener(OnRvClickListener onRvClickListener) {
