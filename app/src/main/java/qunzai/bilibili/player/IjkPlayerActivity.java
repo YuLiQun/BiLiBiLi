@@ -50,6 +50,7 @@ public class IjkPlayerActivity extends BaseActivity {
     private LinearLayout mOperationLayout;
     private ImageView mSend;
     private EditText mEditText;
+    private Bundle mBundle;
 
     @Override
     protected int getLayout() {
@@ -71,10 +72,16 @@ public class IjkPlayerActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        Bundle bundle = getIntent().getBundleExtra("IjkPlayerData");
-        CategoriesBean bean = (CategoriesBean) bundle.get("Data");
-        int position = bundle.getInt("Position");
-        mVideoPath = bean.getData().get(position).getPlayurl();
+        mBundle = getIntent().getBundleExtra("Categories2IjkPlayerData");
+        if(mBundle != null){
+            CategoriesBean bean = (CategoriesBean) mBundle.get("Data");
+            int position = mBundle.getInt("Position");
+            mVideoPath = bean.getData().get(position).getPlayurl();
+        }
+        mBundle = getIntent().getBundleExtra("Live2IjkPlayerData");
+        if(mBundle != null){
+            mVideoPath = mBundle.getString("Data");
+        }
         IjkMediaPlayer.loadLibrariesOnce(null);
         IjkMediaPlayer.native_profileBegin("libijkplayer.so");
         mMediaController = new AndroidMediaController(this,false);

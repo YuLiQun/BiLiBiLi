@@ -161,4 +161,15 @@
     <string name="item_live_head_live_center">直播中心</string>
     <string name="item_live_head_search_live">搜索直播</string>
     <string name="item_live_head_all_categorise">全部分类</string>
+
+    <string-array name="songs">
+        <item name= "s1">月亮代表我的心</item>
+        <item>北京欢迎你</item>
+        <item>生日快乐</item>
+        <item>小星星</item>
+        <item>笑傲江湖曲</item>
+        <item>鐵血丹心</item>
+        <item>同桌的你</item>
+        <item>想唱就唱</item>
+    </string-array>
 </resources>

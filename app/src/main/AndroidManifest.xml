@@ -71,6 +71,7 @@
 
         <activity
             android:name=".main.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/NoTheme">
         </activity>
 
@@ -107,6 +108,9 @@
 
         <activity android:name=".communication.TuringActivity"/>
         <activity android:name=".drawer.DownActivity"/>
+        <activity android:name=".game.PhonePianoActivity"
+                  android:screenOrientation="landscape">
+        </activity>
     </application>
 
 </manifest>

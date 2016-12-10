@@ -82,7 +82,7 @@ public class CategoriesActivity extends BaseActivity implements CategoriesView, 
         Bundle bundle = new Bundle();
         bundle.putSerializable("Data",bean);
         bundle.putInt("Position",position);
-        intent.putExtra("IjkPlayerData",bundle);
+        intent.putExtra("Categories2IjkPlayerData",bundle);
         startActivity(intent);
     }
 }

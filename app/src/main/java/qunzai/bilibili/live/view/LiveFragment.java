@@ -1,6 +1,7 @@
 package qunzai.bilibili.live.view;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,14 +15,16 @@ import java.util.List;
 
 import qunzai.bilibili.R;
 import qunzai.bilibili.base.BaseFragment;
-import qunzai.bilibili.base.BilibiliApp;
 import qunzai.bilibili.base.CommonViewHolder;
+import qunzai.bilibili.base.Interfaces.OnLoadMoreListener;
 import qunzai.bilibili.base.Interfaces.OnMultiTypeItemClickListeners;
 import qunzai.bilibili.bean.LiveContentBean;
 import qunzai.bilibili.live.allcategories.view.AllCategoriesActivity;
 import qunzai.bilibili.live.presenter.ImageLoopAdapter;
 import qunzai.bilibili.live.presenter.LiveLoadingMoreAdapter;
 import qunzai.bilibili.live.presenter.LivePresenterImpl;
+import qunzai.bilibili.player.IjkPlayerActivity;
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 import static qunzai.bilibili.internet.UrlClass.URL_LIVE;
 
@@ -63,7 +66,6 @@ public class LiveFragment extends BaseFragment implements LiveView, View.OnClick
 
     @Override
     protected void initData() {
-
         mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorTitleBackground));
         GridLayoutManager manager = new GridLayoutManager(getContext(),2, GridLayoutManager.VERTICAL,false);
         mRecyclerView.setLayoutManager(manager);
@@ -75,7 +77,25 @@ public class LiveFragment extends BaseFragment implements LiveView, View.OnClick
         mAdapter.setOnMultiTypeItemClickListener(new OnMultiTypeItemClickListeners<LiveContentBean.DataBean.PartitionsBean.LivesBean>() {
             @Override
             public void onItemClick(CommonViewHolder viewHolder, LiveContentBean.DataBean.PartitionsBean.LivesBean data, int position, int viewType) {
+                Intent intent = new Intent(getContext(), IjkPlayerActivity.class);
+                Bundle bundle = new Bundle();
+                String url = data.getPlayurl();
+                bundle.putString("Data",url);
+                intent.putExtra("Live2IjkPlayerData",bundle);
+                startActivity(intent);
+            }
+        });
 
+        mAdapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(boolean isReload) {
+                mContentNumber++;
+                if(mContentNumber > mLiveContentBean.getData().getPartitions().size() - 1){
+                    mAdapter.setLoadEndView(R.layout.load_end);
+                }else {
+                    mAdapter.setLoadMoreData(mLiveContentBean.getData().getPartitions().get(mContentNumber).getLives());
+
+                }
             }
         });
 
@@ -83,14 +103,12 @@ public class LiveFragment extends BaseFragment implements LiveView, View.OnClick
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                if(mContentNumber > mLiveContentBean.getData().getPartitions().size()){
-                    mAdapter.setLoadEndView(R.layout.load_end);
-                }else {
-                    mContentNumber++;
-                    mAdapter.setLoadMoreData(mLiveContentBean.getData().getPartitions().get(mContentNumber).getLives());
-                }
+                mContentNumber = 0;
+                mAdapter.setInitData(mLiveContentBean.getData().getPartitions().get(mContentNumber).getLives());
+                mSwipeRefreshLayout.setRefreshing(false);
             }
         });
+
         mRecyclerView.setAdapter(mAdapter);
 
         mLivePresenter.getLiveContent(URL_LIVE,LiveContentBean.class);
@@ -103,19 +121,19 @@ public class LiveFragment extends BaseFragment implements LiveView, View.OnClick
         for (int i = 0; i < liveContentBean.getData().getBanner().size(); i++) {
             imageUrls.add(liveContentBean.getData().getBanner().get(i).getImg());
         }
-        mLoopAdapter.setImageUrls(imageUrls);
         mRollPagerView.setAdapter(mLoopAdapter);
+        mLoopAdapter.setImageUrls(imageUrls);
+
 
         mContentNumber = 0;
         mLiveContentBean = liveContentBean;
         mAdapter.setInitData(mLiveContentBean.getData().getPartitions().get(mContentNumber).getLives());
-        mSwipeRefreshLayout.setRefreshing(false);
         mAdapter.setLoadingView(R.layout.load_loading);
     }
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(BilibiliApp.getContext(), AllCategoriesActivity.class);
+        Intent intent = new Intent(getContext(), AllCategoriesActivity.class);
         startActivity(intent);
     }
 }
