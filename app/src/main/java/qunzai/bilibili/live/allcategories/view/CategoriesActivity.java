@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +14,7 @@ import qunzai.bilibili.base.BilibiliApp;
 import qunzai.bilibili.bean.CategoriesBean;
 import qunzai.bilibili.live.allcategories.presenter.CategoriesAdapter;
 import qunzai.bilibili.live.allcategories.presenter.CategoriesPresenterImpl;
+import qunzai.bilibili.player.IjkPlayerActivity;
 
 /**
  * Created by XingMingDa on 16/12/6.
@@ -68,7 +68,7 @@ public class CategoriesActivity extends BaseActivity implements CategoriesView, 
 
     @Override
     public void onClick(View view) {
-
+        finish();
     }
 
     @Override
@@ -78,7 +78,7 @@ public class CategoriesActivity extends BaseActivity implements CategoriesView, 
 
     @Override
     public void onClick(CategoriesBean bean, int position) {
-        Intent intent = new Intent(this,IjkPlayerTestActivity.class);
+        Intent intent = new Intent(this,IjkPlayerActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("Data",bean);
         bundle.putInt("Position",position);

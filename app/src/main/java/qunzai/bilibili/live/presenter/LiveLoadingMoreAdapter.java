@@ -1,6 +1,7 @@
-package qunzai.bilibili.live;
+package qunzai.bilibili.live.presenter;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
@@ -8,7 +9,6 @@ import qunzai.bilibili.R;
 import qunzai.bilibili.base.CommonViewHolder;
 import qunzai.bilibili.base.MultiTypeBaseAdapter;
 import qunzai.bilibili.bean.LiveContentBean;
-import qunzai.bilibili.bean.LiveHeadBean;
 
 /**
  * Created by XingMingDa on 16/12/8.
@@ -17,14 +17,9 @@ import qunzai.bilibili.bean.LiveHeadBean;
 
 public class LiveLoadingMoreAdapter extends MultiTypeBaseAdapter<LiveContentBean> {
 
-    private LiveHeadBean mLiveHeadBean;
 
     public LiveLoadingMoreAdapter(Context context, List datas, boolean isOpenLoadMore) {
         super(context, datas, isOpenLoadMore);
-    }
-
-    public void setLiveHeadBean(LiveHeadBean liveHeadBean) {
-        mLiveHeadBean = liveHeadBean;
     }
 
     @Override
@@ -39,7 +34,7 @@ public class LiveLoadingMoreAdapter extends MultiTypeBaseAdapter<LiveContentBean
     @Override
     protected int getItemLayoutId(int viewType) {
         if (viewType == 0) {
-            return R.layout.item_live_head;
+            return R.layout.item_live_home;
         }
         return R.layout.item_live;
     }
@@ -51,5 +46,12 @@ public class LiveLoadingMoreAdapter extends MultiTypeBaseAdapter<LiveContentBean
         } else {
             return 1;
         }
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+
     }
 }

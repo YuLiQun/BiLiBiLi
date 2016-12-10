@@ -37,7 +37,7 @@ public class DrawerFragment extends BaseFragment implements View.OnClickListener
 
     private ListView mLv;
     private TextView mUsername;
-    private ImageView mImgMoon,mImgSun;
+    private ImageView mImgMoon, mImgSun;
 
 
     @Override
@@ -59,7 +59,7 @@ public class DrawerFragment extends BaseFragment implements View.OnClickListener
         /*注册EventBus*/
         EventBus.getDefault().register(this);
         mLv = bindView(R.id.fragment_drawer_lv);
-        View headView = LayoutInflater.from(mContext).inflate(R.layout.item_drawer_header,null);
+        View headView = LayoutInflater.from(mContext).inflate(R.layout.item_drawer_header, null);
         mLv.addHeaderView(headView);
         mUsername = bindView(headView, R.id.item_drawer_header_username_tv);
         mImgMoon = bindView(headView, R.id.item_drawer_header_moon_img);
@@ -79,7 +79,6 @@ public class DrawerFragment extends BaseFragment implements View.OnClickListener
     }
 
 
-
     private void mLvClick() {
         mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -91,27 +90,34 @@ public class DrawerFragment extends BaseFragment implements View.OnClickListener
                         String username = getSp.getString("username", "");
 
                         if (isStatus == false) {//如果没有登录
-                            Intent intent = new Intent(mContext,LoginActivity.class);
+                            Intent intent = new Intent(mContext, LoginActivity.class);
                             startActivity(intent);
-                        }else {//如果登录以后
+                        } else {//如果登录以后
 
                             Intent intentAfter = new Intent(mContext, LoginAfterActivity.class);
                             startActivity(intentAfter);
                         }
 
                         break;
+
+                    case 9:
+                        Intent intent = new Intent(mContext,DownActivity.class);
+                        startActivity(intent);
+                        break;
                 }
+
+
             }
         });
     }
 
 
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)//先发送后注册,,粘性,,,将发送和接受绑定在一起
-    public void getTextEvent(EventBusBean eventBusBean){
+    public void getTextEvent(EventBusBean eventBusBean) {
         String username = eventBusBean.getUsername();
-        if (username.length() != 0){
+        if (username.length() != 0) {
             mUsername.setText(username);
-        }else {
+        } else {
             mUsername.setText("未登录");
         }
 

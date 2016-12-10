@@ -301,7 +301,6 @@ public final class UrlClass {
     // 游戏推荐
     public static final String URL_GAME_COMM = "http://recommend.api.sj.360.cn/AppStore/getRecomendAppsBytype?type=2&withext=1&prepage=recommend&curpage=game&page=1&os=21&vc=300050237&v=5.2.37&md=Google+Nexus+4+-+5.0.0+-+API+21+-+768x1280&sn=4.410215500736835&cpu=&ca1=x86&ca2=&m=5284047f4ffb4e04824a2fd1d1f0cd62&m2=c4c08770eebc0a27ea5ec0f626aa0ba3&ch=8946433&ppi=768_1184&startCount=1&re=1&tid=0&cpc=1&snt=-1&nt=1&br=generic&s_3pk=1";
 
-
     /**
      * 直播全部分类图标
      */
