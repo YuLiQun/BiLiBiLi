@@ -111,6 +111,10 @@
         <activity android:name=".game.PhonePianoActivity"
                   android:screenOrientation="landscape">
         </activity>
+        <activity android:name=".live.view.ConcernAnchorActivity"
+                  android:hardwareAccelerated="false"
+                    android:theme="@style/NoTheme">
+        </activity>
     </application>
 
 </manifest>

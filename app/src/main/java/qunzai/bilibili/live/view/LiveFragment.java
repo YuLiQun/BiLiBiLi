@@ -61,6 +61,13 @@ public class LiveFragment extends BaseFragment implements LiveView, View.OnClick
         mAllCategoriseLl = bindView(view, R.id.item_live_head_all_categorise_ll);
         mConcernAnchorLl = bindView(view, R.id.item_live_head_concern_anchor_ll);
         mAllCategoriseLl.setOnClickListener(this);
+        mConcernAnchorLl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ConcernAnchorActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
