@@ -13,6 +13,7 @@
             android:layout_height="wrap_content"/>
     <TextView
         android:layout_width="wrap_content"
+        android:background="#9ffc9f"
         android:id="@+id/item_left_tv"
         android:layout_height="wrap_content"/>
     </LinearLayout>

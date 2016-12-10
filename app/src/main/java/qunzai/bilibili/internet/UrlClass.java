@@ -298,6 +298,8 @@ public final class UrlClass {
     public static final String OVERSEAS = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=11&build=427000&mobi_app=android&page=1&platform=android&sort=hottest&tag=%E6%B5%B7%E5%A4%96%E7%95%99%E5%AD%A6&sign=e020487063f4ef4f218fe8efc6d8a304";
     //个人自拍
     public static final String URL_OUR = "http://live.bilibili.com/mobile/rooms?_device=android&_hwid=ccbb856c97ccb8d2&appkey=1d8b6e7d45233436&area_id=11&build=427000&mobi_app=android&page=1&platform=android&sort=hottest&tag=%E4%B8%AA%E4%BA%BA%E8%87%AA%E6%8B%8D&sign=87ecf33da1f5916ebb0463b8f7fefa70";
+    // 游戏推荐
+    public static final String URL_GAME_COMM = "http://recommend.api.sj.360.cn/AppStore/getRecomendAppsBytype?type=2&withext=1&prepage=recommend&curpage=game&page=1&os=21&vc=300050237&v=5.2.37&md=Google+Nexus+4+-+5.0.0+-+API+21+-+768x1280&sn=4.410215500736835&cpu=&ca1=x86&ca2=&m=5284047f4ffb4e04824a2fd1d1f0cd62&m2=c4c08770eebc0a27ea5ec0f626aa0ba3&ch=8946433&ppi=768_1184&startCount=1&re=1&tid=0&cpc=1&snt=-1&nt=1&br=generic&s_3pk=1";
 
 
     /**
