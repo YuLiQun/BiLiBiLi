@@ -32,7 +32,7 @@ public class CommunicationFragment extends BaseFragment {
 
     private RecyclerView mLv;
     private TextView mComm;
-
+-
     @Override
     protected void initData() {
 
