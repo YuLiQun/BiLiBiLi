@@ -1,12 +1,15 @@
 package qunzai.bilibili.main;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.FrameLayout;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -25,6 +28,7 @@ import qunzai.bilibili.communication.CommunicationFragment;
 import qunzai.bilibili.concern.ConcernFragment;
 import qunzai.bilibili.drawer.DrawerFragment;
 import qunzai.bilibili.find.FindFragment;
+import qunzai.bilibili.game.PhonePianoActivity;
 import qunzai.bilibili.live.view.LiveFragment;
 
 
@@ -37,6 +41,7 @@ public class MainActivity extends BaseActivity {
     private FragmentManager mFragmentManager;
     private DrawerFragment mDrawerFragment;
     private TextView mUsername;
+    private ImageView mGameIma;
 
     @Override
     protected int getLayout() {
@@ -52,6 +57,7 @@ public class MainActivity extends BaseActivity {
         mFrameLayout = bindView(R.id.fragment_drawer_fl);
         setSupportActionBar(mToolbar);
         mUsername = bindView(R.id.include_username_tv);
+        mGameIma = bindView(R.id.include_game_img);
     }
 
     @Override
@@ -70,9 +76,13 @@ public class MainActivity extends BaseActivity {
         MainAdapter adapter = new MainAdapter(getSupportFragmentManager(),fragments);
         vp.setAdapter(adapter);
         tb.setupWithViewPager(vp);
-
-
-
+        mGameIma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PhonePianoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

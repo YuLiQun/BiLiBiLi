@@ -14,11 +14,11 @@ import java.util.List;
  * Created by dllo on 16/12/9.
  */
 
-public class ImagerLoopAdapter extends LoopPagerAdapter {
+public class ImageLoopAdapter extends LoopPagerAdapter {
 
     private List<String> imageUrls;
 
-    public ImagerLoopAdapter(RollPagerView viewPager) {
+    public ImageLoopAdapter(RollPagerView viewPager) {
         super(viewPager);
     }
 
